@@ -1,0 +1,18 @@
+public class AccountTriggerHandler {
+    
+    public static void criarContatoRelacionado(List<Account> accList){
+        	List<Contact> contatoLista = new List<Contact>();
+        for(Account acc :  accList){            
+            Contact contato = new Contact();
+            contato.FirstName = 'Teste Apex';
+            contato.LastName = 'Teste Apex ' + acc.Name;    
+            contato.AccountId = acc.Id;
+            contatoLista.add(contato);
+            
+        }
+        if(!contatoLista.isEmpty()){
+            insert contatoLista;
+        }
+    }
+
+}
